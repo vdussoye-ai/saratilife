@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Launch from './pages/Launch'
 import Assessment from './pages/Assessment'
 import Capital from './pages/Capital'
+import Article from './pages/Article'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Launch />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/capital/:id" element={<Capital />} />
+        <Route path="/article/:slug" element={<Article />} />
       </Routes>
     </BrowserRouter>
   )

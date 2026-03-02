@@ -314,7 +314,7 @@ export default function SaratiLifeLaunch() {
                 Want the full picture?
               </span>
               <span style={{ fontSize: "14px", color: "#6b5c4c" }}>
-                {" "}Read our deep dive: <em style={{ color: "#e8890c", cursor: "pointer" }}>The State of AI Career Disruption, 2026</em> — 
+                {" "}Read our deep dive: <a href="/article/ai-career-disruption-2026" style={{ color: "#e8890c", cursor: "pointer", textDecoration: "none", fontStyle: "italic" }}>The State of AI Career Disruption, 2026</a> —
                 industry-by-industry analysis of what's already changed.
               </span>
             </div>
