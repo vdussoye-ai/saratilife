@@ -60,12 +60,6 @@ function CapitalsDiagram() {
             <div style={{ fontFamily: "'Lora', serif", fontSize: "16px", fontWeight: 600, color: "#3d3429" }}>{cap.name}</div>
             <div style={{ fontSize: "13px", color: "#9a8b7a", marginTop: "2px" }}>{cap.desc}</div>
           </div>
-          <div style={{
-            width: "48px", height: "3px", borderRadius: "2px",
-            background: `linear-gradient(90deg, ${cap.color}, transparent)`,
-            opacity: visible ? 1 : 0,
-            transition: `opacity 1s ease ${0.2 + 0.1 * i}s`
-          }} />
         </div>
       ))}
     </div>
