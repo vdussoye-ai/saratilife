@@ -146,12 +146,12 @@ export default function SaratiLifeLaunch() {
         transition: "all 0.4s ease",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
           <SaratiLogo size={28} animate={!mobileMenuOpen} />
           <span style={{ fontFamily: "'Lora', serif", fontSize: "18px", fontWeight: 700, color: "#3d3429" }}>
             SaratiLife
           </span>
-        </div>
+        </a>
         <div className="nav-links-desktop">
           <span className="nav-link" onClick={() => document.getElementById("framework")?.scrollIntoView({ behavior: "smooth" })}>Framework</span>
           <span className="nav-link" onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}>How It Works</span>
