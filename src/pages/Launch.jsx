@@ -86,10 +86,7 @@ export default function SaratiLifeLaunch() {
   }, []);
 
   const navigate = () => window.location.href = "/assessment";
-  const ctaClick = () => {
-    const el = document.getElementById("assessment-cta");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  const ctaClick = () => window.location.href = "/assessment";
 
   return (
     <div style={{
@@ -439,7 +436,7 @@ export default function SaratiLifeLaunch() {
 
       {/* ═══════ SECTION 5: FOUNDER (Short) ═══════ */}
       <section style={{
-        padding: "64px 24px",
+        padding: "32px 24px",
         background: "linear-gradient(180deg, transparent 0%, rgba(232,137,12,0.015) 50%, transparent 100%)",
       }}>
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
