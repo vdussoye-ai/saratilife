@@ -146,7 +146,7 @@ export default function SaratiLifeLaunch() {
         transition: "all 0.4s ease",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <SaratiLogo size={28} animate={!mobileMenuOpen} />
           <span style={{ fontFamily: "'Lora', serif", fontSize: "18px", fontWeight: 700, color: "#3d3429" }}>
             SaratiLife

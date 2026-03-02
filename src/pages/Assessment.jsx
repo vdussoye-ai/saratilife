@@ -1111,12 +1111,12 @@ export default function CareerPivotWizard() {
         background: "rgba(248,246,243,0.95)", backdropFilter: "blur(10px)",
         position: "sticky", top: 0, zIndex: 10
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", cursor: "pointer" }}>
           <img src={LOGO_SRC} alt="" width={24} height={24} style={{ objectFit: "contain" }} />
           <span style={{ fontFamily: "'Lora', serif", fontSize: "17px", fontWeight: 600, color: "#3d3429" }}>
             SaratiLife
           </span>
-        </div>
+        </a>
         {step > 0 && step < STEPS.length - 1 && (
           <span style={{ fontSize: "12px", color: "#9a8b7a" }}>
             Step {step} of {STEPS.length - 2}
