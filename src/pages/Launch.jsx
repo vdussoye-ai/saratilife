@@ -130,6 +130,14 @@ export default function SaratiLifeLaunch() {
           .mobile-menu .nav-link { font-size: 18px; padding: 16px 0; border-bottom: 1px solid rgba(200,138,42,0.08); display: block; }
           .mobile-menu .cta-primary { margin-top: 24px; text-align: center; }
           .features-grid { grid-template-columns: 1fr !important; }
+          .hero-section { padding: 100px 20px 48px !important; }
+          .hero-stats { gap: 16px !important; margin-top: 28px !important; }
+          .hero-quote { font-size: 17px !important; }
+          .section-framework, .section-how { padding: 48px 20px !important; }
+          .final-cta { padding: 60px 20px !important; }
+          .founder-card { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+          .founder-card blockquote { border-left: none !important; padding-left: 0 !important; border-top: 3px solid #e8890c; padding-top: 16px !important; }
+          .founder-meta { justify-content: center !important; }
         }
       `}</style>
 
@@ -174,7 +182,7 @@ export default function SaratiLifeLaunch() {
       )}
 
       {/* ═══════ SECTION 1: HERO ═══════ */}
-      <section style={{
+      <section className="hero-section" style={{
         display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
         textAlign: "center", padding: "140px 24px 64px", position: "relative",
       }}>
@@ -234,7 +242,7 @@ export default function SaratiLifeLaunch() {
           </button>
         </div>
 
-        <div style={{
+        <div className="hero-stats" style={{
           display: "flex", gap: "28px", marginTop: "40px", flexWrap: "wrap", justifyContent: "center",
           opacity: heroVisible ? 1 : 0, transition: "opacity 1.2s ease 1.2s",
         }}>
@@ -270,7 +278,7 @@ export default function SaratiLifeLaunch() {
         </RevealSection>
 
         <RevealSection delay={0.2}>
-          <blockquote style={{
+          <blockquote className="hero-quote" style={{
             fontFamily: "'Lora', serif", fontSize: "20px", fontStyle: "italic",
             color: "#3d3429", lineHeight: 1.6,
             padding: "20px 0 20px 24px", borderLeft: "3px solid #e8890c",
@@ -315,7 +323,7 @@ export default function SaratiLifeLaunch() {
       </section>
 
       {/* ═══════ SECTION 3: THE FRAMEWORK ═══════ */}
-      <section id="framework" style={{
+      <section id="framework" className="section-framework" style={{
         padding: "80px 24px",
         background: "linear-gradient(180deg, transparent 0%, rgba(232,137,12,0.02) 50%, transparent 100%)",
       }}>
@@ -354,7 +362,7 @@ export default function SaratiLifeLaunch() {
       </section>
 
       {/* ═══════ SECTION 4: HOW IT WORKS + WHAT YOU GET ═══════ */}
-      <section id="how-it-works" style={{ padding: "80px 24px", maxWidth: "680px", margin: "0 auto" }}>
+      <section id="how-it-works" className="section-how" style={{ padding: "80px 24px", maxWidth: "680px", margin: "0 auto" }}>
         <RevealSection>
           <div style={{
             fontSize: "12px", fontWeight: 600, color: "#c48a2a",
@@ -441,7 +449,7 @@ export default function SaratiLifeLaunch() {
       }}>
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
           <RevealSection>
-            <div style={{
+            <div className="founder-card" style={{
               display: "flex", gap: "16px", alignItems: "flex-start",
               padding: "28px 24px",
               background: "rgba(61,52,41,0.02)", borderRadius: "12px",
@@ -450,13 +458,13 @@ export default function SaratiLifeLaunch() {
               <SaratiLogo size={36} />
               <div>
                 <p style={{ fontFamily: "'Lora', serif", fontSize: "15px", fontStyle: "italic", color: "#3d3429", lineHeight: 1.7, marginBottom: "12px" }}>
-                  "I'm a technology leader with 20+ years in enterprise tech. For a long 
-                  time, my strategy was 'keep doing good work.' Then I ran the math — not 
-                  just the financial math, the <em>whole life</em> math. I built SaratiLife 
-                  because the journey from 'going with the flow' to 'navigating with 
+                  "I'm a technology leader with 20+ years in enterprise tech. For a long
+                  time, my strategy was 'keep doing good work.' Then I ran the math — not
+                  just the financial math, the <em>whole life</em> math. I built SaratiLife
+                  because the journey from 'going with the flow' to 'navigating with
                   intention' shouldn't require a crisis to start."
                 </p>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div className="founder-meta" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <div style={{ fontSize: "13px", fontWeight: 600, color: "#3d3429" }}>Founder, SaratiLife</div>
                   <span style={{ fontSize: "11px", color: "#9a8b7a" }}>·</span>
                   <div style={{ fontSize: "12px", color: "#9a8b7a" }}>
@@ -470,7 +478,7 @@ export default function SaratiLifeLaunch() {
       </section>
 
       {/* ═══════ SECTION 6: FINAL CTA ═══════ */}
-      <section id="assessment-cta" style={{
+      <section id="assessment-cta" className="final-cta" style={{
         padding: "100px 24px", textAlign: "center", position: "relative",
       }}>
         <div style={{
