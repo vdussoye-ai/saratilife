@@ -1189,15 +1189,19 @@ export default function CareerPivotWizard() {
     const capitals = calculateFiveCapitals(data);
     const payload = {
       email,
-      riskScore,
+      aiRisk: riskScore,
       financial: capitals.financial,
       human: capitals.human,
       social: capitals.social,
       health: capitals.health,
       spiritual: capitals.spiritual,
     };
-    // TODO: Replace with Google Apps Script POST
-    console.log("Report payload:", payload);
+    fetch("https://script.google.com/macros/s/AKfycbw03Keq_S7ooPfRcb7IhTZp1PLNFjVJdgs9NGEFX35dCfRCreGXzySKc-gIAHg3CeZEhg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
     trackEvent("email_capture", { location: "report_gate" });
     setReportPayload(payload);
     setEmailSubmitted(true);
