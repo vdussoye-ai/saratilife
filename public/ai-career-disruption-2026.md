@@ -206,7 +206,7 @@ The disruption isn't coming. It's here. The career arithmetic has already flippe
 
 The most dangerous career strategy in 2026 isn't making the wrong move. It's making no move at all.
 
-**[Take the free AI Career Readiness Assessment →](https://saratilife.com/assessment)**
+**[Take the free AI Career Readiness Assessment →](/assessment)**
 
 *10 minutes. Five capitals. Your strategic position report — personalized to your role, industry, and experience level.*
 
