@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
 import { SaratiLogo, SaratiMark, LOGO_SRC } from "../components/Logo";
+import { trackEvent } from "../lib/analytics";
 
 
 
@@ -753,6 +755,84 @@ function AspirationsStep({ data, setData }) {
   );
 }
 
+function EmailCaptureStep({ email, setEmail, onSubmit }) {
+  const [visible, setVisible] = useState(false);
+  const [error, setError] = useState("");
+  useEffect(() => { setTimeout(() => setVisible(true), 300); }, []);
+
+  const handleSubmit = () => {
+    if (!email || !email.includes("@") || !email.includes(".")) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    setError("");
+    onSubmit();
+  };
+
+  return (
+    <div style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(20px)",
+      transition: "all 0.8s ease",
+      display: "flex", flexDirection: "column", alignItems: "center",
+      justifyContent: "center", textAlign: "center",
+      minHeight: "60vh",
+    }}>
+      <SaratiLogo size={48} />
+      <h2 style={{
+        fontFamily: "'Lora', serif", fontSize: "28px", fontWeight: 700,
+        color: "#3d3429", marginTop: "24px", marginBottom: "8px",
+      }}>
+        Your report is ready
+      </h2>
+      <p style={{
+        fontSize: "15px", color: "#6b5c4c", lineHeight: 1.6,
+        maxWidth: "380px", marginBottom: "32px",
+      }}>
+        Enter your email to unlock your personalized Career Readiness Report —
+        AI risk score, Five Capitals map, and action plan.
+      </p>
+
+      <div style={{ width: "100%", maxWidth: "380px" }}>
+        <input
+          type="email"
+          placeholder="your@email.com"
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); setError(""); }}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+          style={{
+            width: "100%", padding: "16px 18px", borderRadius: "10px",
+            border: error ? "1.5px solid #c0392b" : "1.5px solid rgba(200,138,42,0.2)",
+            background: "#fff", fontSize: "15px", fontFamily: "'DM Sans', sans-serif",
+            color: "#3d3429", outline: "none", boxSizing: "border-box",
+            transition: "border-color 0.3s ease",
+          }}
+        />
+        {error && (
+          <p style={{ fontSize: "12px", color: "#c0392b", marginTop: "6px", textAlign: "left" }}>
+            {error}
+          </p>
+        )}
+
+        <button onClick={handleSubmit} style={{
+          width: "100%", marginTop: "14px", padding: "16px",
+          borderRadius: "10px", border: "none",
+          background: "#3d3429", color: "#f8f6f3",
+          fontSize: "15px", fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
+          cursor: "pointer", transition: "all 0.3s ease",
+          boxShadow: "0 2px 16px rgba(61,52,41,0.12)",
+        }}>
+          View My Report <SaratiMark />
+        </button>
+      </div>
+
+      <p style={{ fontSize: "11px", color: "#b3a698", marginTop: "16px" }}>
+        No spam. We'll only send you your report and relevant updates.
+      </p>
+    </div>
+  );
+}
+
 function ReportStep({ data }) {
   const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
@@ -881,7 +961,7 @@ function ReportStep({ data }) {
                   <div style={{ fontSize: "12px", color: "#6b5c4c", lineHeight: 1.5, marginBottom: "10px" }}>
                     {score < 40 ? "⚠ Critical gap — " : "↗ Room to grow — "}{cap.gap}
                   </div>
-                  <a href={`/capital/${cap.key}`} style={{
+                  <a href={`/capital/${cap.key}`} onClick={() => trackEvent("go_deeper_click", { capital: cap.key, location: "capital_card" })} style={{
                     display: "inline-block", padding: "8px 20px",
                     background: score < 40 ? "#c0392b" : "#e8890c",
                     color: "#fff", borderRadius: "6px", fontSize: "12px",
@@ -940,7 +1020,7 @@ function ReportStep({ data }) {
                 const isWeak = score < 40;
                 const isMid = score >= 40 && score < 60;
                 return (
-                  <a key={cap.key} href={`/capital/${cap.key}`} style={{
+                  <a key={cap.key} href={`/capital/${cap.key}`} onClick={() => trackEvent("go_deeper_click", { capital: cap.key, location: "choose_deeper" })} style={{
                     display: "flex", alignItems: "center", gap: "14px",
                     padding: "14px 16px", borderRadius: "10px",
                     background: isWeak ? "rgba(192,57,43,0.12)" : isMid ? "rgba(232,137,12,0.08)" : "rgba(255,255,255,0.05)",
@@ -1038,7 +1118,7 @@ function ReportStep({ data }) {
                   const score = capitals[cap.key];
                   const isWeak = score < 40;
                   return (
-                    <a key={cap.key} href={`/capital/${cap.key}`} style={{
+                    <a key={cap.key} href={`/capital/${cap.key}`} onClick={() => trackEvent("go_deeper_click", { capital: cap.key, location: "action_plan" })} style={{
                       display: "flex", alignItems: "center", gap: "12px",
                       padding: "12px 14px", borderRadius: "8px",
                       background: isWeak ? "rgba(192,57,43,0.12)" : "rgba(255,255,255,0.05)",
@@ -1070,10 +1150,18 @@ export default function CareerPivotWizard() {
   const [data, setData] = useState({
     skills: { Technical: [], Strategic: [], Human: [] }
   });
+  const [email, setEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [reportPayload, setReportPayload] = useState(null);
   const contentRef = useRef(null);
 
   const next = () => {
     if (step < STEPS.length - 1) {
+      trackEvent("assessment_step", {
+        from_step: STEPS[step].id,
+        to_step: STEPS[step + 1].id,
+        step_number: step + 1,
+      });
       setStep(s => s + 1);
       if (contentRef.current) contentRef.current.scrollTop = 0;
     }
@@ -1096,12 +1184,46 @@ export default function CareerPivotWizard() {
     }
   };
 
+  const handleEmailSubmit = () => {
+    const riskScore = calculateAIRiskScore(data);
+    const capitals = calculateFiveCapitals(data);
+    const payload = {
+      email,
+      riskScore,
+      financial: capitals.financial,
+      human: capitals.human,
+      social: capitals.social,
+      health: capitals.health,
+      spiritual: capitals.spiritual,
+    };
+    // TODO: Replace with Google Apps Script POST
+    console.log("Report payload:", payload);
+    trackEvent("email_capture", { location: "report_gate" });
+    setReportPayload(payload);
+    setEmailSubmitted(true);
+  };
+
   return (
     <div style={{
       minHeight: "100vh", background: "#f8f6f3",
       fontFamily: "'DM Sans', sans-serif", color: "#3d3429",
       display: "flex", flexDirection: "column"
     }}>
+      <Helmet>
+        <title>Career Assessment — SaratiLife</title>
+        <meta name="description" content="Discover your AI displacement risk, map your Five Capitals, and get a personalized career pivot strategy — free 10-minute assessment." />
+        <link rel="canonical" href="https://saratilife.com/assessment" />
+        <meta property="og:title" content="Career Assessment — SaratiLife" />
+        <meta property="og:description" content="Discover your AI displacement risk, map your Five Capitals, and get a personalized career pivot strategy." />
+        <meta property="og:url" content="https://saratilife.com/assessment" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Career Assessment — SaratiLife" />
+        <meta name="twitter:description" content="Discover your AI displacement risk, map your Five Capitals, and get a personalized career pivot strategy." />
+        <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
+      </Helmet>
+
       <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
       {/* Header */}
@@ -1142,7 +1264,11 @@ export default function CareerPivotWizard() {
         {step === 3 && <FinancialStep data={data} setData={setData} />}
         {step === 4 && <ValuesStep data={data} setData={setData} />}
         {step === 5 && <AspirationsStep data={data} setData={setData} />}
-        {step === 6 && <ReportStep data={data} />}
+        {step === 6 && (
+          emailSubmitted
+            ? <ReportStep data={data} />
+            : <EmailCaptureStep email={email} setEmail={setEmail} onSubmit={handleEmailSubmit} />
+        )}
       </main>
 
       {/* Navigation Footer */}

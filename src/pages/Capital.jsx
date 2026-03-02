@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { SaratiLogo, LOGO_SRC } from "../components/Logo";
+import { trackEvent } from "../lib/analytics";
 
 const CAPITALS = {
   financial: {
@@ -103,6 +105,7 @@ export default function Capital() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && email.includes("@")) {
+      trackEvent("waitlist_submit", { capital_id: id });
       // TODO: Connect to email service (ConvertKit, Mailchimp, etc.)
       console.log(`Waitlist signup: ${email} for ${capital.label}`);
       setSubmitted(true);
@@ -114,6 +117,21 @@ export default function Capital() {
       minHeight: "100vh", background: "#f8f6f3",
       fontFamily: "'DM Sans', sans-serif", color: "#3d3429",
     }}>
+      <Helmet>
+        <title>{capital.label} — SaratiLife</title>
+        <meta name="description" content={capital.description} />
+        <link rel="canonical" href={`https://saratilife.com/capital/${id}`} />
+        <meta property="og:title" content={`${capital.label} — SaratiLife`} />
+        <meta property="og:description" content={capital.description} />
+        <meta property="og:url" content={`https://saratilife.com/capital/${id}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${capital.label} — SaratiLife`} />
+        <meta name="twitter:description" content={capital.description} />
+        <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
+      </Helmet>
+
       <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
       <style>{`
@@ -144,6 +162,7 @@ export default function Capital() {
         </a>
       </nav>
 
+      <main>
       {/* Hero */}
       <section className="capital-hero" style={{
         padding: "80px 24px 60px", maxWidth: "640px", margin: "0 auto", textAlign: "center",
@@ -297,6 +316,7 @@ export default function Capital() {
           )}
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer style={{ padding: "32px 24px", borderTop: "1px solid rgba(200,138,42,0.08)", textAlign: "center" }}>

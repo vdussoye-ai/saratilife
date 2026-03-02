@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { SaratiLogo, SaratiMark } from "../components/Logo";
+import { trackEvent } from "../lib/analytics";
 
 
 
@@ -79,14 +81,31 @@ export default function SaratiLifeLaunch() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navigate = () => window.location.href = "/assessment";
-  const ctaClick = () => window.location.href = "/assessment";
+  const ctaClick = (location) => {
+    trackEvent("cta_click", { location });
+    window.location.href = "/assessment";
+  };
 
   return (
     <div style={{
       minHeight: "100vh", background: "#f8f6f3",
       fontFamily: "'DM Sans', sans-serif", color: "#3d3429", overflowX: "hidden",
     }}>
+      <Helmet>
+        <title>SaratiLife — Flowing with Intention</title>
+        <meta name="description" content="Find your AI displacement risk, map the five capitals that determine your future, and get a strategic career pivot plan in 10 minutes. Free assessment for mid-career professionals." />
+        <link rel="canonical" href="https://saratilife.com/" />
+        <meta property="og:title" content="SaratiLife — The Career Math Nobody's Doing" />
+        <meta property="og:description" content="AI displacement risk score, Five Capitals mapping, and a strategic pivot plan — in 10 minutes. Free." />
+        <meta property="og:url" content="https://saratilife.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SaratiLife — Flowing with Intention" />
+        <meta name="twitter:description" content="Your AI displacement risk + Five Capitals career strategy in 10 minutes." />
+        <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
+      </Helmet>
+
       <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
       <style>{`
@@ -154,7 +173,7 @@ export default function SaratiLifeLaunch() {
         <div className="nav-links-desktop">
           <span className="nav-link" onClick={() => document.getElementById("framework")?.scrollIntoView({ behavior: "smooth" })}>Framework</span>
           <span className="nav-link" onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}>How It Works</span>
-          <button className="cta-primary" onClick={ctaClick} style={{ padding: "10px 24px", fontSize: "13px" }}>
+          <button className="cta-primary" onClick={() => ctaClick("nav")} style={{ padding: "10px 24px", fontSize: "13px" }}>
             Take the Assessment
           </button>
         </div>
@@ -169,12 +188,13 @@ export default function SaratiLifeLaunch() {
         <div className="mobile-menu">
           <span className="nav-link" onClick={() => { setMobileMenuOpen(false); document.getElementById("framework")?.scrollIntoView({ behavior: "smooth" }); }}>Framework</span>
           <span className="nav-link" onClick={() => { setMobileMenuOpen(false); document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" }); }}>How It Works</span>
-          <button className="cta-primary" onClick={() => { setMobileMenuOpen(false); ctaClick(); }} style={{ padding: "14px 32px", fontSize: "15px", width: "100%" }}>
+          <button className="cta-primary" onClick={() => { setMobileMenuOpen(false); ctaClick("mobile_menu"); }} style={{ padding: "14px 32px", fontSize: "15px", width: "100%" }}>
             Take the Assessment
           </button>
         </div>
       )}
 
+      <main>
       {/* ═══════ SECTION 1: HERO ═══════ */}
       <section className="hero-section" style={{
         display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
@@ -231,7 +251,7 @@ export default function SaratiLifeLaunch() {
           transform: heroVisible ? "translateY(0)" : "translateY(30px)",
           transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.9s",
         }}>
-          <button className="cta-primary" onClick={ctaClick} style={{ fontSize: "16px", padding: "18px 48px" }}>
+          <button className="cta-primary" onClick={() => ctaClick("hero")} style={{ fontSize: "16px", padding: "18px 48px" }}>
             Start Free Assessment<SaratiMark />
           </button>
         </div>
@@ -498,7 +518,7 @@ export default function SaratiLifeLaunch() {
               The free assessment takes 10 minutes. The clarity lasts. 
               Find out where you actually stand.
             </p>
-            <button className="cta-primary" onClick={() => window.location.href = "/assessment"} style={{ fontSize: "16px", padding: "18px 52px" }}>
+            <button className="cta-primary" onClick={() => ctaClick("final_cta")} style={{ fontSize: "16px", padding: "18px 52px" }}>
               Begin Your Assessment<SaratiMark />
             </button>
             <div style={{
@@ -513,6 +533,7 @@ export default function SaratiLifeLaunch() {
           </div>
         </RevealSection>
       </section>
+      </main>
 
       {/* ═══════ FOOTER ═══════ */}
       <footer style={{ padding: "40px 24px", borderTop: "1px solid rgba(200,138,42,0.08)", textAlign: "center" }}>

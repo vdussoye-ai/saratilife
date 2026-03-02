@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import { SaratiLogo } from "../components/Logo";
+
+const ARTICLE_META = {
+  "ai-career-disruption-2026": {
+    title: "The State of AI Career Disruption, 2026 — SaratiLife",
+    description: "Industry-by-industry analysis of AI career disruption in 2026. Understand your displacement risk and plan your strategic pivot.",
+  },
+};
 
 export default function Article() {
   const { slug } = useParams();
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const meta = ARTICLE_META[slug] || {
+    title: `${slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())} — SaratiLife`,
+    description: "Read this article on SaratiLife — career strategy insights for mid-career professionals navigating AI disruption.",
+  };
 
   useEffect(() => {
     fetch(`/${slug}.md`)
@@ -32,6 +44,21 @@ export default function Article() {
       fontFamily: "'DM Sans', sans-serif",
       color: "#3d3429",
     }}>
+      <Helmet>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <link rel="canonical" href={`https://saratilife.com/article/${slug}`} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={`https://saratilife.com/article/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
+      </Helmet>
+
       <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
@@ -162,7 +189,7 @@ export default function Article() {
       </nav>
 
       {/* Content */}
-      <div className="article-content" style={{
+      <main className="article-content" style={{
         maxWidth: "720px",
         margin: "0 auto",
         padding: "120px 24px 80px",
@@ -188,11 +215,11 @@ export default function Article() {
         )}
 
         {!loading && !error && (
-          <div className="article-body">
+          <article className="article-body">
             <ReactMarkdown>{markdown}</ReactMarkdown>
-          </div>
+          </article>
         )}
-      </div>
+      </main>
     </div>
   );
 }
