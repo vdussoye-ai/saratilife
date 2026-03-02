@@ -119,6 +119,10 @@ export default function Capital() {
       <style>{`
         * { margin: 0; padding: 0; box-sizing: border-box; }
         ::selection { background: rgba(232,137,12,0.2); }
+        @media (max-width: 768px) {
+          .capital-hero { padding: 48px 20px 40px !important; }
+          .capital-cta-card { padding: 32px 20px !important; }
+        }
       `}</style>
 
       {/* Nav */}
@@ -141,7 +145,7 @@ export default function Capital() {
       </nav>
 
       {/* Hero */}
-      <section style={{
+      <section className="capital-hero" style={{
         padding: "80px 24px 60px", maxWidth: "640px", margin: "0 auto", textAlign: "center",
       }}>
         <div style={{
@@ -203,7 +207,7 @@ export default function Capital() {
       <section style={{
         padding: "60px 24px 80px", maxWidth: "640px", margin: "0 auto",
       }}>
-        <div style={{
+        <div className="capital-cta-card" style={{
           background: "linear-gradient(135deg, rgba(61,52,41,0.95), rgba(61,52,41,0.88))",
           borderRadius: "16px", padding: "40px 32px", textAlign: "center",
         }}>
