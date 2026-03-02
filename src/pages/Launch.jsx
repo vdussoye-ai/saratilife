@@ -178,9 +178,8 @@ export default function SaratiLifeLaunch() {
 
       {/* ═══════ SECTION 1: HERO ═══════ */}
       <section style={{
-        minHeight: "100vh",
         display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
-        textAlign: "center", padding: "120px 24px 80px", position: "relative",
+        textAlign: "center", padding: "140px 24px 64px", position: "relative",
       }}>
         <div style={{
           position: "absolute", top: "15%", right: "8%",
@@ -249,18 +248,10 @@ export default function SaratiLifeLaunch() {
             </div>
           ))}
         </div>
-
-        <div style={{
-          position: "absolute", bottom: "28px",
-          opacity: heroVisible ? 0.4 : 0, transition: "opacity 1.5s ease 1.5s",
-          animation: "pulse 2s ease-in-out infinite",
-        }}>
-          <div style={{ width: "1px", height: "36px", background: "linear-gradient(to bottom, transparent, #c48a2a)", margin: "0 auto" }} />
-        </div>
       </section>
 
       {/* ═══════ SECTION 2: THE PROBLEM (Tight) ═══════ */}
-      <section style={{ padding: "80px 24px", maxWidth: "680px", margin: "0 auto" }}>
+      <section style={{ padding: "48px 24px 80px", maxWidth: "680px", margin: "0 auto" }}>
         <RevealSection>
           <h2 style={{
             fontFamily: "'Lora', serif", fontSize: "clamp(26px, 3.5vw, 36px)",
