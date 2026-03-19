@@ -21,7 +21,7 @@ export default function Scorecard() {
       padding: 'var(--space-lg)',
     }}>
       <Helmet>
-        <title>Your Five Capitals Scorecard — SaratiLife</title>
+        <title>{"Your Five Capitals Scorecard — SaratiLife"}</title>
         <meta name="description" content="See your Five Capitals radar chart and AI-generated narrative. Understand your career, financial, health, social, and inner capital scores." />
         <link rel="canonical" href="https://saratilife.com/scorecard" />
         <meta property="og:title" content="Your Five Capitals Scorecard — SaratiLife" />

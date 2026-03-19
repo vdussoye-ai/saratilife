@@ -82,7 +82,7 @@ export default function About() {
       overflowX: "hidden",
     }}>
       <Helmet>
-        <title>About — SaratiLife</title>
+        <title>{"About — SaratiLife"}</title>
         <meta name="description" content="Meet the founder of SaratiLife. 20+ years in enterprise tech, certified life coach, and the mind behind the Five Capitals framework for mid-career clarity." />
         <link rel="canonical" href="https://saratilife.com/about" />
         <meta property="og:title" content="About — SaratiLife" />

@@ -369,7 +369,7 @@ export default function Assessment() {
     return (
       <div style={pageStyle}>
         <Helmet>
-          <title>Your Results — SaratiLife</title>
+          <title>{"Your Results — SaratiLife"}</title>
           <meta name="robots" content="noindex" />
         </Helmet>
         <FunnelNav />
@@ -719,7 +719,7 @@ export default function Assessment() {
   return (
     <div style={pageStyle}>
       <Helmet>
-        <title>Assessment — Question {currentQ + 1} of {totalQ} — SaratiLife</title>
+        <title>{`Assessment — Question ${currentQ + 1} of ${totalQ} — SaratiLife`}</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <FunnelNav />

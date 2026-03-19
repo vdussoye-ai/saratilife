@@ -118,7 +118,7 @@ export default function Capital() {
       fontFamily: "'DM Sans', sans-serif", color: "#3d3429",
     }}>
       <Helmet>
-        <title>{capital.label} — SaratiLife</title>
+        <title>{`${capital.label} — SaratiLife`}</title>
         <meta name="description" content={capital.description} />
         <link rel="canonical" href={`https://saratilife.com/capital/${id}`} />
         <meta property="og:title" content={`${capital.label} — SaratiLife`} />

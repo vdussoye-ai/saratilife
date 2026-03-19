@@ -18,7 +18,7 @@ export default function CheckIn() {
       padding: 'var(--space-lg)',
     }}>
       <Helmet>
-        <title>Weekly Check-In — SaratiLife</title>
+        <title>{"Weekly Check-In — SaratiLife"}</title>
         <meta name="description" content="Weekly reflection and check-in for your 90-day sprint. Track progress across all Five Capitals." />
         <link rel="canonical" href="https://saratilife.com/checkin" />
         <meta property="og:title" content="Weekly Check-In — SaratiLife" />

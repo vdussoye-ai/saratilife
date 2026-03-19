@@ -21,7 +21,7 @@ export default function Blueprint() {
       padding: 'var(--space-lg)',
     }}>
       <Helmet>
-        <title>Your Life Blueprint — SaratiLife</title>
+        <title>{"Your Life Blueprint — SaratiLife"}</title>
         <meta name="description" content="Your personalized life strategy document based on the Five Capitals assessment. See where you are vs. where you could be." />
         <link rel="canonical" href="https://saratilife.com/blueprint" />
         <meta property="og:title" content="Your Life Blueprint — SaratiLife" />

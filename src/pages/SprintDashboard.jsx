@@ -18,7 +18,7 @@ export default function SprintDashboard() {
       padding: 'var(--space-lg)',
     }}>
       <Helmet>
-        <title>Sprint Dashboard — SaratiLife</title>
+        <title>{"Sprint Dashboard — SaratiLife"}</title>
         <meta name="description" content="Your 90-day sprint dashboard with weekly focus and progress tracking across all Five Capitals." />
         <link rel="canonical" href="https://saratilife.com/sprint" />
         <meta property="og:title" content="Sprint Dashboard — SaratiLife" />

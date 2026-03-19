@@ -18,7 +18,7 @@ export default function NotFound() {
       textAlign: 'center',
     }}>
       <Helmet>
-        <title>Page Not Found — SaratiLife</title>
+        <title>{"Page Not Found — SaratiLife"}</title>
         <meta name="description" content="The page you're looking for doesn't exist or has been moved." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

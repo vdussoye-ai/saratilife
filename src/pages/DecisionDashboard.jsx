@@ -17,7 +17,7 @@ export default function DecisionDashboard() {
       padding: 'var(--space-lg)',
     }}>
       <Helmet>
-        <title>Decision Dashboard — SaratiLife</title>
+        <title>{"Decision Dashboard — SaratiLife"}</title>
         <meta name="description" content="Ongoing decision tool for strategic life choices. Make purpose-driven decisions aligned with your Five Capitals." />
         <link rel="canonical" href="https://saratilife.com/decisions" />
         <meta property="og:title" content="Decision Dashboard — SaratiLife" />

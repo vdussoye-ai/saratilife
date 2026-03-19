@@ -46,7 +46,7 @@ export default function Contact() {
       color: "var(--charcoal)",
     }}>
       <Helmet>
-        <title>Contact — SaratiLife</title>
+        <title>{"Contact — SaratiLife"}</title>
         <meta name="description" content="Get in touch with SaratiLife. Questions, feedback, or partnership ideas — we'd love to hear from you." />
         <link rel="canonical" href="https://saratilife.com/contact" />
         <meta property="og:title" content="Contact — SaratiLife" />

@@ -69,7 +69,7 @@ export default function Landing() {
       overflowX: "hidden",
     }}>
       <Helmet>
-        <title>SaratiLife — Discover Where You Stand in Career and Life</title>
+        <title>{"SaratiLife — Discover Where You Stand in Career and Life"}</title>
         <meta name="description" content="Discover where you stand in your career and life in just 10 minutes. Complete the Five Capitals assessment, get instant insights, and see if deeper coaching is right for you." />
         <link rel="canonical" href="https://saratilife.com/" />
         <meta property="og:title" content="SaratiLife — Discover Where You Stand in Career and Life" />
