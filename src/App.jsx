@@ -9,6 +9,7 @@ const SprintDashboard = lazy(() => import('./pages/SprintDashboard'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
 const DecisionDashboard = lazy(() => import('./pages/DecisionDashboard'));
 const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
 const Resources = lazy(() => import('./pages/Resources'));
 const Capital = lazy(() => import('./pages/Capital'));
 const Article = lazy(() => import('./pages/Article'));
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/scorecard" element={<Scorecard />} />
           <Route path="/blueprint" element={<Blueprint />} />
