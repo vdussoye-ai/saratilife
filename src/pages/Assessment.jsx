@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { trackEvent } from "../lib/analytics";
 import FunnelNav from "../components/FunnelNav";
@@ -223,7 +222,6 @@ const GSHEET_URL = "https://script.google.com/macros/s/AKfycbw03Keq_S7ooPfRcb7Ih
 
 // ── Component ───────────────────────────────────────────────────────────
 export default function Assessment() {
-  const navigate = useNavigate();
   const [currentQ, setCurrentQ] = useState(-1); // -1 = welcome screen
   const [answers, setAnswers] = useState({});
   const [email, setEmail] = useState("");
@@ -234,8 +232,6 @@ export default function Assessment() {
 
   const totalQ = QUESTIONS.length;
   const progress = currentQ >= 0 ? ((currentQ + 1) / totalQ) * 100 : 0;
-  const isComplete = Object.keys(answers).length === totalQ;
-
   // Transition helper
   const transitionTo = (nextQ) => {
     setFadeIn(false);
