@@ -28,6 +28,56 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png" />
     <link rel="apple-touch-icon" href="/logo-192.png" />
 
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://saratilife.com/#organization",
+          "name": "SaratiLife",
+          "url": "https://saratilife.com",
+          "logo": "https://saratilife.com/logo-512.png",
+          "description": "Life clarity and career strategy platform for mid-career professionals using the Five Capitals model.",
+          "sameAs": [],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@saratilife.com",
+            "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://saratilife.com/#website",
+          "url": "https://saratilife.com",
+          "name": "SaratiLife",
+          "publisher": { "@id": "https://saratilife.com/#organization" },
+          "description": "Achieve clarity in your career and life. The Five Capitals assessment maps your career, finances, health, relationships, and purpose."
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://saratilife.com/#business",
+          "name": "SaratiLife",
+          "url": "https://saratilife.com",
+          "logo": "https://saratilife.com/logo-512.png",
+          "image": "https://saratilife.com/logo-512.png",
+          "description": "Life transformation platform for mid-career professionals (35-55). Career strategy, Five Capitals assessment, and personalized life blueprints.",
+          "priceRange": "Free–$$",
+          "serviceType": ["Career Coaching", "Life Strategy", "Professional Assessment"],
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+          "founder": {
+            "@type": "Person",
+            "jobTitle": "Enterprise Architect & Certified Life Coach"
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Google Analytics — SaratiLife stream (G-PVVQD3QEGY) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PVVQD3QEGY"></script>
     <script>

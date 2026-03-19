@@ -53,6 +53,10 @@ export default function Contact() {
         <meta property="og:description" content="Get in touch with SaratiLife. Questions, feedback, or partnership ideas — we'd love to hear from you." />
         <meta property="og:url" content="https://saratilife.com/contact" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact — SaratiLife" />
+        <meta name="twitter:description" content="Get in touch with SaratiLife. Questions, feedback, or partnership ideas — we'd love to hear from you." />
       </Helmet>
 
       <style>{`

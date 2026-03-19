@@ -19,6 +19,8 @@ export default function NotFound() {
     }}>
       <Helmet>
         <title>Page Not Found — SaratiLife</title>
+        <meta name="description" content="The page you're looking for doesn't exist or has been moved." />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <h1 style={{
         fontFamily: 'var(--font-heading)',

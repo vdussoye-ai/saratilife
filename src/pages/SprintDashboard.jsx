@@ -19,7 +19,17 @@ export default function SprintDashboard() {
     }}>
       <Helmet>
         <title>Sprint Dashboard — SaratiLife</title>
-        <meta name="description" content="Your 90-day sprint dashboard with weekly focus and progress tracking." />
+        <meta name="description" content="Your 90-day sprint dashboard with weekly focus and progress tracking across all Five Capitals." />
+        <link rel="canonical" href="https://saratilife.com/sprint" />
+        <meta property="og:title" content="Sprint Dashboard — SaratiLife" />
+        <meta property="og:description" content="Your 90-day sprint dashboard with weekly focus and progress tracking." />
+        <meta property="og:url" content="https://saratilife.com/sprint" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Sprint Dashboard — SaratiLife" />
+        <meta name="twitter:description" content="Your 90-day sprint dashboard with weekly focus and progress tracking." />
+        <meta name="robots" content="noindex" />
       </Helmet>
       <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--space-md)' }}>
         Sprint Dashboard

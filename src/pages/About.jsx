@@ -90,6 +90,9 @@ export default function About() {
         <meta property="og:url" content="https://saratilife.com/about" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="About — SaratiLife" />
+        <meta name="twitter:description" content="Meet the founder of SaratiLife — 20+ years in enterprise tech, certified life coach, and creator of the Five Capitals framework." />
       </Helmet>
 
       <style>{`

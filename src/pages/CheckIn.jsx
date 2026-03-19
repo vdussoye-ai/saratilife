@@ -19,7 +19,17 @@ export default function CheckIn() {
     }}>
       <Helmet>
         <title>Weekly Check-In — SaratiLife</title>
-        <meta name="description" content="Weekly reflection and check-in for your 90-day sprint." />
+        <meta name="description" content="Weekly reflection and check-in for your 90-day sprint. Track progress across all Five Capitals." />
+        <link rel="canonical" href="https://saratilife.com/checkin" />
+        <meta property="og:title" content="Weekly Check-In — SaratiLife" />
+        <meta property="og:description" content="Weekly reflection and check-in for your 90-day sprint." />
+        <meta property="og:url" content="https://saratilife.com/checkin" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Weekly Check-In — SaratiLife" />
+        <meta name="twitter:description" content="Weekly reflection and check-in for your 90-day sprint." />
+        <meta name="robots" content="noindex" />
       </Helmet>
       <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--space-md)' }}>
         Weekly Check-In

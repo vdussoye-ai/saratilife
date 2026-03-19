@@ -22,7 +22,17 @@ export default function Scorecard() {
     }}>
       <Helmet>
         <title>Your Five Capitals Scorecard — SaratiLife</title>
-        <meta name="description" content="See your Five Capitals radar chart and AI-generated narrative." />
+        <meta name="description" content="See your Five Capitals radar chart and AI-generated narrative. Understand your career, financial, health, social, and inner capital scores." />
+        <link rel="canonical" href="https://saratilife.com/scorecard" />
+        <meta property="og:title" content="Your Five Capitals Scorecard — SaratiLife" />
+        <meta property="og:description" content="See your Five Capitals radar chart and AI-generated narrative." />
+        <meta property="og:url" content="https://saratilife.com/scorecard" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Your Five Capitals Scorecard — SaratiLife" />
+        <meta name="twitter:description" content="See your Five Capitals radar chart and AI-generated narrative." />
+        <meta name="robots" content="noindex" />
       </Helmet>
       <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--space-md)' }}>
         Your Scorecard

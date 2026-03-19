@@ -179,6 +179,9 @@ export default function Resources() {
         <meta property="og:url" content="https://saratilife.com/resources" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Resources & Guides — SaratiLife" />
+        <meta name="twitter:description" content="Articles, frameworks, and guides on career strategy, the Five Capitals model, and building a life with intention." />
       </Helmet>
 
       <style>{`

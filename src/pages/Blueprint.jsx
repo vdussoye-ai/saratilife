@@ -22,7 +22,17 @@ export default function Blueprint() {
     }}>
       <Helmet>
         <title>Your Life Blueprint — SaratiLife</title>
-        <meta name="description" content="Your personalized life strategy document based on the Five Capitals assessment." />
+        <meta name="description" content="Your personalized life strategy document based on the Five Capitals assessment. See where you are vs. where you could be." />
+        <link rel="canonical" href="https://saratilife.com/blueprint" />
+        <meta property="og:title" content="Your Life Blueprint — SaratiLife" />
+        <meta property="og:description" content="Your personalized life strategy document based on the Five Capitals assessment." />
+        <meta property="og:url" content="https://saratilife.com/blueprint" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://saratilife.com/logo-512.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Your Life Blueprint — SaratiLife" />
+        <meta name="twitter:description" content="Your personalized life strategy document based on the Five Capitals assessment." />
+        <meta name="robots" content="noindex" />
       </Helmet>
       <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--space-md)' }}>
         Your Life Blueprint
