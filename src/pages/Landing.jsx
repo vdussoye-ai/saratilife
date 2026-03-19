@@ -62,27 +62,30 @@ export default function Landing() {
       overflowX: "hidden",
     }}>
       <Helmet>
-        <title>SaratiLife — How Future-Proof Is Your Life?</title>
-        <meta name="description" content="Most professionals are optimizing their week while drifting off course in their life. Take the free 7-minute assessment and find out where you really stand." />
+        <title>SaratiLife — Achieve Clarity in Your Career and Life</title>
+        <meta name="description" content="Achieve clarity in your career and life in just 10 minutes a day. The Five Capitals assessment maps your career, finances, health, relationships, and purpose." />
         <link rel="canonical" href="https://saratilife.com/" />
-        <meta property="og:title" content="SaratiLife — How Future-Proof Is Your Life?" />
-        <meta property="og:description" content="Most professionals are optimizing their week while drifting off course in their life. Find out in 7 minutes." />
+        <meta property="og:title" content="SaratiLife — Achieve Clarity in Your Career and Life" />
+        <meta property="og:description" content="The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating." />
         <meta property="og:url" content="https://saratilife.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://saratilife.com/logo-512.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SaratiLife — How Future-Proof Is Your Life?" />
-        <meta name="twitter:description" content="Most professionals are optimizing their week while drifting off course in their life. Find out in 7 minutes." />
+        <meta name="twitter:title" content="SaratiLife — Achieve Clarity in Your Career and Life" />
+        <meta name="twitter:description" content="The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating." />
         <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
       </Helmet>
 
       <style>{`
         .landing-cta {
-          background: var(--saffron);
-          color: var(--white);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--charcoal);
+          color: var(--cream);
           border: none;
-          padding: 0 48px;
-          height: 56px;
+          padding: 0 44px;
+          height: 58px;
           border-radius: var(--radius-full);
           font-size: var(--font-size-md);
           font-family: var(--font-body);
@@ -90,19 +93,28 @@ export default function Landing() {
           cursor: pointer;
           letter-spacing: 0.01em;
           transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-          box-shadow: var(--shadow-md);
+          box-shadow: 0 4px 20px rgba(45,45,45,0.18);
+          min-height: 48px;
         }
         .landing-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-lg);
+          background: var(--saffron);
+          color: var(--white);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 28px rgba(232,137,12,0.3);
         }
         .landing-cta:active {
           transform: translateY(0);
-          box-shadow: var(--shadow-sm);
+          box-shadow: 0 2px 8px rgba(232,137,12,0.2);
+        }
+        .landing-cta:focus-visible {
+          outline: 3px solid var(--saffron);
+          outline-offset: 3px;
         }
         @media (max-width: 768px) {
-          .landing-hero { padding: 80px 20px !important; min-height: 100svh !important; }
-          .landing-heading { font-size: 36px !important; }
+          .landing-hero { padding: 60px 20px !important; min-height: 100svh !important; }
+          .landing-heading { font-size: clamp(28px, 8vw, 36px) !important; }
+          .landing-subtitle { font-size: var(--font-size-md) !important; }
+          .landing-cta { width: 100%; max-width: 360px; padding: 0 24px; }
           .landing-stats { flex-direction: column; gap: 16px !important; }
           .landing-stat-card { width: 100% !important; }
         }
@@ -163,29 +175,32 @@ export default function Landing() {
                 fontWeight: 700,
                 lineHeight: 1.15,
                 color: "var(--charcoal)",
-                maxWidth: "660px",
+                maxWidth: "700px",
                 marginBottom: "var(--space-lg)",
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? "translateY(0)" : "translateY(24px)",
                 transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.4s",
               }}
             >
-              How future-proof is your life?
+              Achieve clarity in your career and life in just 10 minutes a day
             </h1>
 
             {/* Subtitle */}
-            <p style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "var(--font-size-lg)",
-              color: "var(--slate)",
-              maxWidth: "520px",
-              lineHeight: 1.7,
-              marginBottom: "var(--space-2xl)",
-              opacity: heroVisible ? 1 : 0,
-              transform: heroVisible ? "translateY(0)" : "translateY(24px)",
-              transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.6s",
-            }}>
-              Most professionals are optimizing their week while drifting off course in their life.
+            <p
+              className="landing-subtitle"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "var(--font-size-lg)",
+                color: "var(--slate)",
+                maxWidth: "540px",
+                lineHeight: 1.7,
+                marginBottom: "var(--space-2xl)",
+                opacity: heroVisible ? 1 : 0,
+                transform: heroVisible ? "translateY(0)" : "translateY(24px)",
+                transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.6s",
+              }}
+            >
+              The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating.
             </p>
 
             {/* CTA */}
@@ -194,8 +209,8 @@ export default function Landing() {
               transform: heroVisible ? "translateY(0)" : "translateY(24px)",
               transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.8s",
             }}>
-              <button className="landing-cta" onClick={ctaClick}>
-                Find out in 7 minutes
+              <button className="landing-cta" onClick={ctaClick} aria-label="Start the free 10-minute clarity session">
+                Start Your 10-Min Clarity Session Today
               </button>
             </div>
           </div>

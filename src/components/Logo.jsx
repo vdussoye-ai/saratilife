@@ -4,7 +4,7 @@ export const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwC
 
 export function SaratiLogo({ size = 32, animate = false }) {
   return (
-    <img src={LOGO_SRC} alt="SaratiLife"
+    <img src={LOGO_SRC} alt="SaratiLife — life clarity and career strategy platform"
       width={size} height={size}
       style={{
         objectFit: "contain",
