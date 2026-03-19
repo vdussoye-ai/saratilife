@@ -34,7 +34,7 @@ function RevealSection({ children, delay = 0 }) {
 }
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Resources", href: "#resources" },
   { label: "Contact", href: "#contact" },
