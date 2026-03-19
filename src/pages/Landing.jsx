@@ -131,17 +131,17 @@ export default function Landing() {
       overflowX: "hidden",
     }}>
       <Helmet>
-        <title>SaratiLife — Achieve Clarity in Your Career and Life</title>
-        <meta name="description" content="Achieve clarity in your career and life in just 10 minutes a day. The Five Capitals assessment maps your career, finances, health, relationships, and purpose." />
+        <title>SaratiLife — Discover Where You Stand in Career and Life</title>
+        <meta name="description" content="Discover where you stand in your career and life in just 10 minutes. Complete the Five Capitals assessment, get instant insights, and see if deeper coaching is right for you." />
         <link rel="canonical" href="https://saratilife.com/" />
-        <meta property="og:title" content="SaratiLife — Achieve Clarity in Your Career and Life" />
-        <meta property="og:description" content="The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating." />
+        <meta property="og:title" content="SaratiLife — Discover Where You Stand in Career and Life" />
+        <meta property="og:description" content="Complete the Five Capitals assessment in 10 minutes, get instant insights, and see if deeper coaching is right for you." />
         <meta property="og:url" content="https://saratilife.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://saratilife.com/logo-512.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SaratiLife — Achieve Clarity in Your Career and Life" />
-        <meta name="twitter:description" content="The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating." />
+        <meta name="twitter:title" content="SaratiLife — Discover Where You Stand in Career and Life" />
+        <meta name="twitter:description" content="Complete the Five Capitals assessment in 10 minutes, get instant insights, and see if deeper coaching is right for you." />
         <meta name="twitter:image" content="https://saratilife.com/logo-512.png" />
       </Helmet>
 
@@ -253,6 +253,9 @@ export default function Landing() {
           .landing-stat-card { width: 100% !important; }
           .testimonial-grid { grid-template-columns: 1fr !important; }
           .resources-grid { grid-template-columns: 1fr !important; }
+          .sticky-mobile-cta {
+            display: flex !important;
+          }
         }
       `}</style>
 
@@ -398,7 +401,7 @@ export default function Landing() {
                 transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.4s",
               }}
             >
-              Achieve clarity in your career and life in just 10 minutes a day
+              Discover where you stand in your career and life in just 10 minutes
             </h1>
 
             <p
@@ -415,7 +418,7 @@ export default function Landing() {
                 transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.6s",
               }}
             >
-              The Five Capitals assessment maps your career, finances, health, relationships, and purpose — so you stop drifting and start navigating.
+              Complete the assessment, get instant insights, and see if deeper coaching is right for you.
             </p>
 
             <div style={{
@@ -423,8 +426,8 @@ export default function Landing() {
               transform: heroVisible ? "translateY(0)" : "translateY(24px)",
               transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.8s",
             }}>
-              <button className="landing-cta" onClick={ctaClick} aria-label="Start the free 10-minute clarity session">
-                Start Your 10-Min Clarity Session Today
+              <button className="landing-cta" onClick={ctaClick} aria-label="Start the free 10-minute assessment">
+                Start Your Assessment
               </button>
             </div>
           </div>
@@ -814,6 +817,38 @@ export default function Landing() {
           </RevealSection>
         </section>
       </main>
+
+      {/* ═══════ STICKY MOBILE CTA ═══════ */}
+      <div
+        className="sticky-mobile-cta"
+        style={{
+          display: "none",
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 98,
+          padding: "12px 16px",
+          paddingBottom: "max(12px, env(safe-area-inset-bottom))",
+          background: "rgba(248,246,243,0.95)",
+          backdropFilter: "blur(12px)",
+          borderTop: "1px solid rgba(200,138,42,0.1)",
+          justifyContent: "center",
+          opacity: scrollY > 300 ? 1 : 0,
+          transform: scrollY > 300 ? "translateY(0)" : "translateY(100%)",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
+          pointerEvents: scrollY > 300 ? "auto" : "none",
+        }}
+      >
+        <button
+          className="landing-cta"
+          onClick={ctaClick}
+          aria-label="Start the free 10-minute assessment"
+          style={{ width: "100%", maxWidth: "360px" }}
+        >
+          Start Your Assessment
+        </button>
+      </div>
     </div>
   );
 }
