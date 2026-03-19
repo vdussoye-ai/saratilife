@@ -72,3 +72,48 @@ body {
 }
 
 h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; }
+
+/* ── Unified CTA ─────────────────────────────────────────────── */
+.sl-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--charcoal);
+  color: var(--cream);
+  border: none;
+  padding: 0 44px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 4px 20px rgba(45,45,45,0.18);
+  min-height: 48px;
+  text-decoration: none;
+}
+.sl-cta:hover {
+  background: var(--saffron);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(232,137,12,0.3);
+}
+.sl-cta:active {
+  transform: translateY(0);
+}
+.sl-cta:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+}
+@media (max-width: 768px) {
+  .sl-cta { width: 100%; max-width: 360px; padding: 0 24px; }
+}
+
+/* ── Print styles for PDF export ─────────────────────────────── */
+@media print {
+  body { background: #fff !important; }
+  .funnel-nav, .sticky-mobile-cta, .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}

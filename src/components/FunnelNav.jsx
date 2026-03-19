@@ -68,6 +68,9 @@ export default function FunnelNav() {
           background: var(--white);
           transition: all 0.3s ease;
           flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .funnel-dot--active {
           border-color: var(--saffron);
@@ -75,6 +78,8 @@ export default function FunnelNav() {
           box-shadow: 0 0 0 3px rgba(232,137,12,0.15);
         }
         .funnel-dot--done {
+          width: 14px;
+          height: 14px;
           border-color: var(--saffron);
           background: var(--saffron);
         }
@@ -149,7 +154,13 @@ export default function FunnelNav() {
                   aria-label={`${step.label}${isDone ? " (completed)" : isActive ? " (current)" : ""}`}
                   style={{ cursor: isDone || isActive ? "pointer" : "default" }}
                 >
-                  <div className={`funnel-dot${isActive ? " funnel-dot--active" : isDone ? " funnel-dot--done" : ""}`} />
+                  <div className={`funnel-dot${isActive ? " funnel-dot--active" : isDone ? " funnel-dot--done" : ""}`}>
+                    {isDone && (
+                      <svg width="8" height="8" viewBox="0 0 10 10" fill="none" style={{ display: "block" }}>
+                        <path d="M2 5.5L4.2 7.5L8 3" stroke="var(--white)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </div>
                   <span className={`funnel-step-label${isActive ? " funnel-step-label--active" : ""}`}>
                     {step.label}
                   </span>
