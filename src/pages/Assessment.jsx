@@ -286,7 +286,7 @@ export default function Assessment() {
     return (
       <div style={pageStyle}>
         <Helmet>
-          <title>Career &amp; Life Clarity Assessment — SaratiLife</title>
+          <title>{"Career & Life Clarity Assessment — SaratiLife"}</title>
           <meta name="description" content="Discover where you stand across career, finances, health, relationships, and purpose in just 10 minutes. Free assessment with instant results." />
           <link rel="canonical" href="https://saratilife.com/assessment" />
           <meta property="og:title" content="Career & Life Clarity Assessment — SaratiLife" />

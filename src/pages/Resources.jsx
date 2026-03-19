@@ -171,7 +171,7 @@ export default function Resources() {
       overflowX: "hidden",
     }}>
       <Helmet>
-        <title>Resources &amp; Guides — SaratiLife</title>
+        <title>{"Resources & Guides — SaratiLife"}</title>
         <meta name="description" content="Articles, frameworks, and guides on career strategy, the Five Capitals model, AI disruption, and building a life with intention. Free resources for mid-career professionals." />
         <link rel="canonical" href="https://saratilife.com/resources" />
         <meta property="og:title" content="Resources & Guides — SaratiLife" />
